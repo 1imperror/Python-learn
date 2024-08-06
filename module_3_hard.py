@@ -10,8 +10,8 @@ def calculate_structure_sum(n):
             sum_ += calculate_structure_sum(key)
             sum_ += calculate_structure_sum(value)
     elif isinstance(n, (list, tuple, set)):
-        for item in n:
-            sum_ += calculate_structure_sum(item)
+        for i in n:
+            sum_ += calculate_structure_sum(i)
 
     return sum_
 
