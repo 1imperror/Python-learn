@@ -9,8 +9,8 @@ class Bank:
         self.lock = Lock()
 
     def deposit(self):
-        increase = randint(50, 500)
         for i in range(100):
+            increase = randint(50, 500)
             self.balance += increase
             if self.balance >= 500 and self.lock.locked():
                 self.lock.release()
@@ -18,8 +18,8 @@ class Bank:
             sleep(0.001)
 
     def take(self):
-        reduce = randint(50, 500)
         for i in range(100):
+            reduce = randint(50, 500)
             print(f'Запрос на {reduce}')
             if reduce <= self.balance:
                 self.balance -= reduce
