@@ -5,7 +5,7 @@ from aiogram.filters.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 import asyncio
 
-API = ''
+API = '7826127560:AAGJ7ca22b_fSwlygGVFufumYXo3hbm3p4k'
 bot = Bot(token=API)
 dp = Dispatcher(storage=MemoryStorage())
 
@@ -16,6 +16,12 @@ class UserState(StatesGroup):
     age = State()
     growth = State()
     weight = State()
+
+
+@router.message(Command('start'))
+async def start(message):
+    await message.answer(f"Приветствую, {message.from_user.first_name}! Я бот помогающий твоему здоровью. "
+                         f"Введите слово Calories и я посчитаю вашу норму калорий.")
 
 
 @router.message(F.text == 'Calories')
