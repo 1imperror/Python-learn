@@ -53,6 +53,11 @@ async def send_calories(message, state: FSMContext):
     await state.clear()
 
 
+@router.message()
+async def all_massages(message):
+    await message.answer('Введите команду /start, чтобы начать общение.')
+
+
 async def main():
     await dp.start_polling(bot)
 
