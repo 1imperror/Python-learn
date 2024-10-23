@@ -3,10 +3,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.filters.command import Command
 from aiogram.filters.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from aiogram.types import CallbackQuery
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, CallbackQuery
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-
 import asyncio
 
 API = ''
