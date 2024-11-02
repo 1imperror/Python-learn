@@ -30,7 +30,7 @@ async def user_by_id(db: Annotated[Session, Depends(get_db)], user_id: int):
         return user
 
 
-@router.post('create')
+@router.post('/create')
 async def create_user(db: Annotated[Session, Depends(get_db)], create_users: CreateUser):
     db.execute(insert(User).values(username=create_users.username, firstname=create_users.firstname,
                                    lastname=create_users.lastname, age=create_users.age,
