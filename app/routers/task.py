@@ -13,7 +13,7 @@ async def task_by_id():
     pass
 
 
-@router.post('create')
+@router.post('/create')
 async def create_task():
     pass
 
