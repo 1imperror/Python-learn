@@ -13,7 +13,7 @@ async def user_by_id():
     pass
 
 
-@router.post('create')
+@router.post('/create')
 async def create_user():
     pass
 
