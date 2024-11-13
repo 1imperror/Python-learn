@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Игры</h1>
+
+    <ul>
+        {% for article in page_obj %}
+            <a>Игра: {{ article.title }}</a>
+            <p>Описание: {{ article.description }}</p>
+            <p>___________________</p>
+        {% endfor %}
+    </ul>
+
+    <div class="pagination">
+        <span>
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+        <form method="get" action="">
+        <select name="per_page" id="per_page" onchange="this.form.submit()">
+            {% for option in options %}
+                <option value="{{ option }}" {% if option == per_page %}selected{% endif %}>
+                    {{ option }}
+                </option>
+            {% endfor %}
+        </select>
+        </form>
+        <div>
+            {% if page_obj.has_previous %}
+                <a href="?page=1&per_page={{ per_page }}">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}&per_page={{ per_page }}">Previous</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <strong>{{ num }}</strong>
+                {% else %}
+                    <a href="?page={{ num }}&per_page={{ per_page }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&per_page={{ per_page }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&per_page={{ per_page }}">Last</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
